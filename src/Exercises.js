@@ -34,3 +34,21 @@ export function PrimeNumbers(min, max) {
 
   return res;
 }
+
+export function MultTable(max) {
+
+  return (
+    <table>
+      <tr>
+        <th></th>
+        {Array(max).fill().map((_, j) => <th>{j+1}</th>)}
+      </tr>
+      {Array(max).fill().map((_, i) =>
+        <tr>
+          <th>{i+1}</th>
+          {Array(max).fill().map((_, j) => <td>{(i+1)*(j+1)}</td>)}
+        </tr>
+      )}
+    </table>
+  )
+}

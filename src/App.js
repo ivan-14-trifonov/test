@@ -50,6 +50,30 @@ function addForm3(setRes3) {
   );
 }
 
+function addForm4(setRes4) {
+
+  function submit4(e: React.FormEvent) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    let max = Number(formData.get("max"));
+    let mult = MultTable(max);
+    setRes4(
+      <div className="container">
+        <p>Таблица умножения:</p>
+        <div>{mult}</div>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={submit4}>
+      <p>Задайте число, до которого будет выведена таблица умножения:</p>
+      <input name="max" type="text" className="input4" />
+      <button type="submit">Вывести</button>
+    </form>
+  );
+}
+
 function App() {
 
   const [res2, setRes2] = useState([]);
@@ -57,6 +81,9 @@ function App() {
 
   const [res3, setRes3] = useState([]);
   let form3 = addForm3(setRes3);
+
+  const [res4, setRes4] = useState([]);
+  let form4 = addForm4(setRes4);
 
   return (
     <div className="App">
@@ -69,6 +96,11 @@ function App() {
       <div>
       {form3}
       {res3}
+      </div>
+      <h2>Задание 4</h2>
+      <div>
+      {form4}
+      {res4}
       </div>
     </div>
   );

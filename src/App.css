@@ -37,6 +37,11 @@
   }
 }
 
+.input1 {
+  margin-right: 0.5em;
+  width: 5em;
+}
+
 .input2 {
   margin-right: 0.5em;
 }

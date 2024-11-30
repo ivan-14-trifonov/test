@@ -1,6 +1,27 @@
 import './App.css';
-import { CommonDivisors, PrimeNumbers, MultTable } from "./Exercises";
+import { Computers, CommonDivisors, PrimeNumbers, MultTable } from "./Exercises";
 import { useState } from "react";
+
+function addForm1(setRes1) {
+
+  function submit1(e: React.FormEvent) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    let n = formData.get("n");
+    let res = Computers(n);
+    setRes1(
+      <p>{res}</p>
+    );
+  }
+
+  return (
+    <form onSubmit={submit1}>
+      <p>Введите число компьютеров:</p>
+      <input name="n" type="text" className="input1" />
+      <button type="submit">Вывести</button>
+    </form>
+  );
+}
 
 function addForm2(setRes2) {
 
@@ -76,6 +97,9 @@ function addForm4(setRes4) {
 
 function App() {
 
+  const [res1, setRes1] = useState([]);
+  let form1 = addForm1(setRes1);
+
   const [res2, setRes2] = useState([]);
   let form2 = addForm2(setRes2);
 
@@ -87,6 +111,11 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Задание 1</h2>
+      <div>
+      {form1}
+      {res1}
+      </div>
       <h2>Задание 2</h2>
       <div>
       {form2}

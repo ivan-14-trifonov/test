@@ -1,3 +1,17 @@
+export function Computers(n) {
+  let str = 'компьютер';
+
+  if ((n >= 11) && (n <= 14))
+    return n + ' ' + str + 'ов';
+  let k = n % 10;
+  if (k == 1)
+    return n + ' ' + str;
+  if ((k >= 2) && (k <= 4))
+    return n + ' ' + str + 'a';
+  if (((k >= 5) && (k <= 9)) || (k == 0))
+    return n + ' ' + str + 'ов';
+}
+
 export function CommonDivisors(givenArr) {
 
   let res = [];
